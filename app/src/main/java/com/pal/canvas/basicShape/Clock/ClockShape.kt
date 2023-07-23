@@ -65,6 +65,9 @@ fun MyClock(){
             hours: Float = 0f,
             radius : Dp = 150.dp
         ){
+    var angle by remember {
+        mutableStateOf(0f)
+    }
         Canvas(modifier = Modifier.size(radius * 2f)){
             drawContext.canvas.nativeCanvas.apply {
                 drawCircle(

@@ -14,15 +14,16 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-
+import com.pal.canvas.basicShape.Clock.MyClock
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Semicircle()
-
+            //Semicircle()
+            StarInRoundShape()
+            //MyClock()
         }
     }
 
