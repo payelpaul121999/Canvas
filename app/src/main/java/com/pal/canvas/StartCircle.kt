@@ -1,5 +1,6 @@
 package com.pal.canvas
 
+import android.graphics.BitmapFactory
 import android.media.MediaDrm.LogMessage
 import android.util.Log
 import androidx.compose.foundation.Canvas
@@ -22,45 +23,7 @@ fun StarInRoundShape() {
     Canvas(
         modifier = Modifier.fillMaxSize(),
     ) {
-       /* val centerX = size.width / 2f
-        val centerY = size.height / 2f
-        val radius = size.width / 2f - 10.dp.toPx()
-        val radiusForSmall = size.width / 2f - 50.dp.toPx()
-        val startAngle = -180f
-        val sweepAngle = 180f
-        // Draw the arc
-        drawArc(
-            color = Color(0xFFD2EAE2),
-            startAngle = startAngle,
-            sweepAngle = sweepAngle,
-            useCenter = false,
-            topLeft = androidx.compose.ui.geometry.Offset(centerX - radiusForSmall, centerY - radiusForSmall),
-            size = androidx.compose.ui.geometry.Size(radiusForSmall * 2, radiusForSmall * 2),
-            style = Stroke(20f, cap = StrokeCap.Round)
-        )
 
-        val starCenterX = centerX
-        val starCenterY = centerY
-        val starOuterRadius = radiusForSmall
-        val starInnerRadius = radiusForSmall
-        val starPoints = calculateStarPoints(
-            starCenterX,
-            starCenterY,
-            points = 5,
-            innerRadius = starInnerRadius,
-            outerRadius = starOuterRadius,
-            rotationAngle = 0f
-        )
-
-        val dotRadius = 30f // Adjust the dot size as needed
-
-        starPoints.forEach { point ->
-            drawCircle(
-                color = Color.LightGray,
-                center = androidx.compose.ui.geometry.Offset(point.x, point.y),
-                radius = dotRadius
-            )
-        }*/
         val center = Offset(size.width / 2, size.height / 2)
         val radius = size.width / 2 - 50f
         val startAngle = -180f
@@ -92,6 +55,7 @@ fun StarInRoundShape() {
                 center = Offset(x, y),
                 radius = dotRadius
             )
+
         }
     }
 }

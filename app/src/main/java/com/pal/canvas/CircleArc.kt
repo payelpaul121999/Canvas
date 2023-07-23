@@ -2,6 +2,7 @@ package com.pal.canvas
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -13,7 +14,7 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
-
+/*final code*/
 @Composable
 fun Semicircle() {
     Canvas(modifier = Modifier.fillMaxSize()) {
@@ -39,7 +40,7 @@ fun Semicircle() {
             useCenter = false,
             topLeft = Offset(centerX - radius, centerY - radius),
             size = androidx.compose.ui.geometry.Size(radius * 2, radius * 2),
-            style = Stroke(40f, cap = StrokeCap.Round)
+            style = Stroke(36f, cap = StrokeCap.Round)
         )
         drawArc(
             color = Color(0xFFE2F2ED),
@@ -56,8 +57,25 @@ fun Semicircle() {
             useCenter = false,
             topLeft = Offset(centerX - radiusForSmall, centerY - radiusForSmall),
             size = androidx.compose.ui.geometry.Size(radiusForSmall * 2, radiusForSmall * 2),
-            style = Stroke(5f, cap = StrokeCap.Round)
+            style = Stroke(8f, cap = StrokeCap.Round)
         )
+        // Draw the 5 dot points on the arc
+        val dotRadius = 35f
+        val angleStep = sweepAngle / 4
+        for (i in 0..4) {
+            val angle = startAngle + angleStep * i
+            val x = center.x + radius * cos(Math.toRadians(angle.toDouble())).toFloat()
+            val y = center.y + radius * sin(Math.toRadians(angle.toDouble())).toFloat()
+
+            drawCircle(
+                color = Color(0xFF899289),
+                center = Offset(x, y),
+                radius = dotRadius
+            )
+
+
+        }
+
     }
 }
 
