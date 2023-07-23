@@ -1,7 +1,8 @@
 package com.pal.canvas
 
 
-import ArcComposable
+
+import DrawArcWithTriangle
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -22,9 +23,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Semicircle()
+            //Semicircle()
             //StarInRoundShape()
-
+            DrawArcWithTriangle()
             //MyClock()
         }
     }
