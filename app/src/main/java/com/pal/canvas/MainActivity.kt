@@ -15,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.pal.canvas.basicShape.Clock.MyClock
+import com.pal.canvas.basicShape.MyApp
 
 
 class MainActivity : ComponentActivity() {
@@ -23,6 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             //Semicircle()
             StarInRoundShape()
+
             //MyClock()
         }
     }
