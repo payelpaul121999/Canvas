@@ -41,26 +41,19 @@ fun DrawArcWithTriangle() {
         )
 
         // Calculate the coordinates of the triangle's vertices at -90 degree position
-        val angleInRadians = Math.toRadians((-90).toDouble()).toFloat()
-        val x1 = 30f + centerX + radius * cos(angleInRadians).toFloat()
+        val angleInRadians = Math.toRadians((-100).toDouble()).toFloat()
+        val x1 = centerX + radius * cos(angleInRadians).toFloat()
         val y1 = centerY + radius * sin(angleInRadians).toFloat()
         val x2 = x1 + 80f // Adjust the size of the triangle as needed
         val y2 = y1
         val x3 = centerX
-        val y3 = centerY - radius - 80f // Adjust the distance between the arc and the triangle
+        val y3 = centerY - radius + 80f // Adjust the distance between the arc and the triangle
 
-
+        // Create a Path object to define the triangle
         val trianglePath = Path()
-
-        // Define the three vertices of the triangle
-        val vertex3 = Offset(x1, y1)
-        val vertex2 = Offset(x2, y2)
-        val vertex1 = Offset(x3, y3)
-
-        // Move the starting point of the path to the first vertex
-        trianglePath.moveTo(vertex1.x, vertex1.y)
-        trianglePath.lineTo(vertex2.x, vertex2.y)
-        trianglePath.lineTo(vertex3.x, vertex3.y)
+        trianglePath.moveTo(x1, y1)
+        trianglePath.lineTo(x2, y2)
+        trianglePath.lineTo(x3, y3)
         trianglePath.close()
 
 
