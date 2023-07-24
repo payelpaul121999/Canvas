@@ -1,5 +1,6 @@
 package com.pal.canvas
 
+import android.graphics.Paint
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
@@ -16,7 +17,9 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.withRotation
+import com.pal.canvas.basicShape.LineType
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -31,6 +34,7 @@ fun Semicircle() {
         val radius = size.width / 2f - 10.dp.toPx()
 
         val radiusForSmall = size.width / 2f - 40.dp.toPx()
+        val radiusForSmallNumber = size.width / 2f - 37.dp.toPx()
         val startAngle = -180f
         val sweepAngle = 180f
         drawArc(
@@ -83,6 +87,20 @@ fun Semicircle() {
             )
 
 
+
+
+        }
+        val angleStep2 = sweepAngle / 5
+        for (i in 0..5){
+            val angle = startAngle + angleStep2 * i
+            drawContext.canvas.nativeCanvas.apply {
+                val x1 = center.x + radiusForSmallNumber * cos(Math.toRadians(angle.toDouble())).toFloat()
+                val y1 = center.y + radiusForSmallNumber * sin(Math.toRadians(angle.toDouble())).toFloat()
+                drawText(abs(i).toString(),x1,y1, Paint().apply {
+                    textSize = 15.dp.toPx()
+                    textAlign = Paint.Align.CENTER
+                })
+            }
         }
 
         // Calculate the coordinates of the triangle's vertices at -90 degree position
@@ -92,7 +110,8 @@ fun Semicircle() {
         val x2 = x1 + 80f // Adjust the size of the triangle as needed
         val y2 = y1
         val x3 = centerX
-        val y3 = centerY - radius + 100f // Adjust the distance between the arc and the triangle
+        val y3 = centerY - radius + 100f
+        // Adjust the distance between the arc and the triangle
 
         // Create a Path object to define the triangle
         val trianglePath = Path()
@@ -110,7 +129,8 @@ fun Semicircle() {
         )
         // Draw the text inside the arc
         val textFirstItem = "TO RETAIN PLATINUM"
-        val fontSize = 20.sp // Set the desired font size here
+        val fontSize = 20.sp
+        // Set the desired font size here
 
 
         // Calculate the center position of the arc
@@ -126,7 +146,7 @@ fun Semicircle() {
             textFirstItem,
             textX + 20f,
             textY,
-            android.graphics.Paint().apply {
+            Paint().apply {
                 textSize = 14.dp.toPx()
                 textAlign = android.graphics.Paint.Align.CENTER
                 color = Color(0xFF2F2F2F).toArgb()
