@@ -10,7 +10,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.nativeCanvas
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.withRotation
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -103,6 +105,27 @@ fun Semicircle() {
 
     }
 }
+
+
+
+
+
+/*drawContext.canvas.nativeCanvas.apply{
+    val textRadius = radius - 5.dp.toPx()
+    val x = textRadius * cos(60f) + center.x
+    val y = textRadius * sin(60f) + center.y
+
+    withRotation(
+        degrees = 20f  * (180f / PI.toFloat()) + 90f,
+        pivotX = x,
+        pivotY = y
+    ){
+        drawPath(
+            path = trianglePath,
+            color = Color.Blue
+        )
+    }
+}*/
 
 
 
